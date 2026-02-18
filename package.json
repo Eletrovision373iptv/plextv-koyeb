@@ -1,9 +1,9 @@
 {
-  "name": "brasil-tv",
+  "name": "brasil-tv-eletrovision",
   "version": "1.0.0",
-  "main": "serverplex.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node serverplex.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.18.2"

@@ -1,8 +1,8 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="1001Noites.br@SD" tvg-logo="https://i.imgur.com/dWA9y2J.png" group-title="Shop",1001 Noites (720p) [Not 24/7]
 https://cdn.jmvstream.com/w/LVW-8155/ngrp:LVW8155_41E1ciuCvO_all/playlist.m3u8
-#EXTINF:-1 tvg-id="band.br@SD" tvg-logo="https://i.postimg.cc/3J4hysL3/adessotv.png" group-title="General",Adesso TV (720p)
-https://cdn.jmvstream.com/w/LVW-9715/LVW9715_12B26T62tm/playlist.m3u8
+#EXTINF:-1 tvg-id="band.br" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/4d/Band_Marca.png" group-title="General",BAND BAHIA (720p)
+https://hqf6tcxuhk.singularcdn.net.br/live/0196ff1e-8bbc-76d9-bcda-cfe58c2b0be6/s1/master.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmlfc3ViIjoiLzAxOTZmZjFlLThiYmMtNzZkOS1iY2RhLWNmZTU4YzJiMGJlNi8iLCJ1aWQiOiJiMDE0NGZhYi00NGMwLTQxOTctYTQwMS1kYTI1ZjZhNDkxM2EiLCJyYXUiOm51bGwsImJleSI6ZmFsc2UsImlpcCI6ZmFsc2UsIm5iZiI6MTc3MTAwOTU1NywiaWF0IjoxNzcxMDA5NTU3LCJleHAiOjE4MDI1NDU1NTcsImp0aSI6ImIwMTQ0ZmFiLTQ0YzAtNDE5Ny1hNDAxLWRhMjVmNmE0OTEzYSIsImlzcyI6IlNwYWxsYSJ9.GJcrcmwD7zRtQkXiFx7VmspxeBRkMEnkgrjSaVTLa7w&uid=b0144fab-44c0-4197-a401-da25f6a4913a
 #EXTINF:-1 tvg-id="Band SP" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/4d/Band_Marca.png" group-title="Outdoor",BAND SP HD (720p) [Not 24/7]
 https://hqf6tcxuhk.singularcdn.net.br/live/019498af-1fdf-7df5-86bd-e4a6f588d6a7/s1/playlist-720p.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmlfc3ViIjoiLzAxOTQ5OGFmLTFmZGYtN2RmNS04NmJkLWU0YTZmNTg4ZDZhNy8iLCJ1aWQiOiJhMjVlZTM1OS03ZmJjLTQ1NTQtOTM0Zi01YTgwMzkzNWQ4YTIiLCJyYXUiOm51bGwsImJleSI6ZmFsc2UsImlpcCI6ZmFsc2UsIm5iZiI6MTc3MDA2MjQyNiwiaWF0IjoxNzcwMDYyNDI2LCJleHAiOjE4MDE1OTg0MjYsImp0aSI6ImEyNWVlMzU5LTdmYmMtNDU1NC05MzRmLTVhODAzOTM1ZDhhMiIsImlzcyI6IlNwYWxsYSJ9.qdOKwmrFXuG4IeeRETsrDfBkMVfkynVbe6Ok9tBUuKk&uid=a25ee359-7fbc-4554-934f-5a803935d8a2&magica=sim
 #EXTINF:-1 tvg-id="AlphaChannel.br@SD" tvg-logo="https://i.imgur.com/c1QqslA.png" group-title="General",Alpha Channel (720p)
@@ -417,5 +417,6 @@ http://unitvaovivo.ufrgs.br:8080/live.ogg
 https://sistemavrt.vrtchannel.tv.br:3473/stream/play.m3u8
 #EXTINF:-1 tvg-id="VV8TV.br@SD" tvg-logo="https://i.imgur.com/TxHWAeD.png" group-title="General",VV8 TV (720p)
 https://video01.kshost.com.br/seap8272/seap8272/playlist.m3u8
+
 
 

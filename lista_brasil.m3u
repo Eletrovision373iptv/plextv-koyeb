@@ -9,8 +9,8 @@ https://hqf6tcxuhk.singularcdn.net.br/live/019498af-1fdf-7df5-86bd-e4a6f588d6a7/
 https://hqf6tcxuhk.singularcdn.net.br/live/0194f211-4229-749f-a47e-58f819471024/s1/master.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmlfc3ViIjoiLzAxOTRmMjExLTQyMjktNzQ5Zi1hNDdlLTU4ZjgxOTQ3MTAyNC8iLCJ1aWQiOiJiMDE0NGZhYi00NGMwLTQxOTctYTQwMS1kYTI1ZjZhNDkxM2EiLCJyYXUiOm51bGwsImJleSI6ZmFsc2UsImlpcCI6ZmFsc2UsIm5iZiI6MTc3MTAwOTUzNywiaWF0IjoxNzcxMDA5NTM3LCJleHAiOjE4MDI1NDU1MzcsImp0aSI6ImIwMTQ0ZmFiLTQ0YzAtNDE5Ny1hNDAxLWRhMjVmNmE0OTEzYSIsImlzcyI6IlNwYWxsYSJ9.NjtRbzLGNmeoZ5h6vMBCcsHaKJtmKUzvxkOII3MjXx4&uid=b0144fab-44c0-4197-a401-da25f6a4913a&magica=sim
 #EXTINF:-1 tvg-id="AmazonSat.br@SD" tvg-logo="https://i.imgur.com/7rjCS5i.png" group-title="Undefined",Amazon Sat (1080p)
 https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8
-#EXTINF:-1 tvg-id="AngelTV.in@Portuguese" tvg-logo="https://i.imgur.com/qKLEGU7.png" group-title="Religious",Angel TV Portuguese (720p)
-https://janya-digimix.akamaized.net/vglive-sk-382409/portuese/ngrp:angelportuguese_all/playlist.m3u8
+#EXTINF:-1 tvg-id="band mg" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/4d/Band_Marca.png" group-title="Religious",BAND MG (720p)
+https://hqf6tcxuhk.singularcdn.net.br/live/0195cdf3-d8d8-74b6-9516-6c79c06bcec8/s1/master.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmlfc3ViIjoiLzAxOTVjZGYzLWQ4ZDgtNzRiNi05NTE2LTZjNzljMDZiY2VjOC8iLCJ1aWQiOiJiMDE0NGZhYi00NGMwLTQxOTctYTQwMS1kYTI1ZjZhNDkxM2EiLCJyYXUiOm51bGwsImJleSI6ZmFsc2UsImlpcCI6ZmFsc2UsIm5iZiI6MTc3MTAwOTU0MCwiaWF0IjoxNzcxMDA5NTQwLCJleHAiOjE4MDI1NDU1NDAsImp0aSI6ImIwMTQ0ZmFiLTQ0YzAtNDE5Ny1hNDAxLWRhMjVmNmE0OTEzYSIsImlzcyI6IlNwYWxsYSJ9.sfTa7PNEp-UdOYHRx5ms7nXwGlIypC45kz-R0ajhwZ4&uid=b0144fab-44c0-4197-a401-da25f6a4913a&magica=sim
 #EXTINF:-1 tvg-id="AWTV.br@HD" tvg-logo="https://i.imgur.com/2tdMyef.png" http-referrer="https://awtv.com.br" group-title="Classic;Series",AWTV (1080p) [Geo-blocked]
 #EXTVLCOPT:http-referrer=https://awtv.com.br
 https://awtv.nuvemplay.live/hls/stream.m3u8
@@ -417,6 +417,7 @@ http://unitvaovivo.ufrgs.br:8080/live.ogg
 https://sistemavrt.vrtchannel.tv.br:3473/stream/play.m3u8
 #EXTINF:-1 tvg-id="VV8TV.br@SD" tvg-logo="https://i.imgur.com/TxHWAeD.png" group-title="General",VV8 TV (720p)
 https://video01.kshost.com.br/seap8272/seap8272/playlist.m3u8
+
 
 
 

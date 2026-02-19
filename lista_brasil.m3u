@@ -16,8 +16,8 @@ https://hqf6tcxuhk.singularcdn.net.br/live/0195cdf3-d8d8-74b6-9516-6c79c06bcec8/
 https://awtv.nuvemplay.live/hls/stream.m3u8
 #EXTINF:-1 tvg-id="BDCTV.br@SD" tvg-logo="https://i.imgur.com/6ckHV6k.jpeg" group-title="Entertainment",BDC TV (576p)
 https://video01.kshost.com.br/bdctv/bdctv/playlist.m3u8
-#EXTINF:-1 tvg-id="BemTV.br@SD" tvg-logo="https://i.imgur.com/ifGQGJx.png" group-title="General",Bem TV (720p)
-http://wz4.dnip.com.br/bemtv/bemtv.sdp/playlist.m3u8
+#EXTINF:-1 tvg-id="BemTV.br@SD" tvg-logo="https://i.imgur.com/IkZfa4j.png" group-title="General",SBT SINOP (720p)
+https://video09.logicahost.com.br/sbtsinop/sbtsinop/playlist.m3u8
 #EXTINF:-1 tvg-id="BoasNovas.br@SD" tvg-logo="https://i.imgur.com/ZqhizdP.png" group-title="Undefined",Boas Novas (1080p)
 https://cdn.jmvstream.com/w/LVW-9375/LVW9375_6i0wPBCHYc/playlist.m3u8
 #EXTINF:-1 tvg-id="CaboFrioTV.br@SD" tvg-logo="https://i.imgur.com/mPi6Wp3.png" group-title="Entertainment",Cabo Frio TV (720p)
@@ -417,6 +417,7 @@ http://unitvaovivo.ufrgs.br:8080/live.ogg
 https://sistemavrt.vrtchannel.tv.br:3473/stream/play.m3u8
 #EXTINF:-1 tvg-id="VV8TV.br@SD" tvg-logo="https://i.imgur.com/TxHWAeD.png" group-title="General",VV8 TV (720p)
 https://video01.kshost.com.br/seap8272/seap8272/playlist.m3u8
+
 
 
 

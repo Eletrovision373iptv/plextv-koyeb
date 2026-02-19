@@ -1,11 +1,12 @@
 {
-  "name": "brasil-tv-eletrovision",
+  "name": "eletrovision-br-tv",
   "version": "1.0.0",
+  "description": "Painel de Canais Brasil",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "latest"
   }
 }

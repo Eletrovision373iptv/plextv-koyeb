@@ -3,8 +3,8 @@
 https://cdn.jmvstream.com/w/LVW-8155/ngrp:LVW8155_41E1ciuCvO_all/playlist.m3u8
 #EXTINF:-1 tvg-id="band.br@SD" tvg-logo="https://i.postimg.cc/3J4hysL3/adessotv.png" group-title="General",Adesso TV (720p)
 https://cdn.jmvstream.com/w/LVW-9715/LVW9715_12B26T62tm/playlist.m3u8
-#EXTINF:-1 tvg-id="AgroBrasilTV.br@SD" tvg-logo="https://i.imgur.com/aNkP7Zd.png" group-title="Outdoor",BAND SP HD (720p) [Not 24/7]
-https://eletrovision373iptv.github.io/minha-lista2/band.m3u
+#EXTINF:-1 tvg-id="Band SP" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/4d/Band_Marca.png" group-title="Outdoor",BAND SP HD (720p) [Not 24/7]
+https://hqf6tcxuhk.singularcdn.net.br/live/019498af-1fdf-7df5-86bd-e4a6f588d6a7/s1/playlist-720p.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmlfc3ViIjoiLzAxOTQ5OGFmLTFmZGYtN2RmNS04NmJkLWU0YTZmNTg4ZDZhNy8iLCJ1aWQiOiJhMjVlZTM1OS03ZmJjLTQ1NTQtOTM0Zi01YTgwMzkzNWQ4YTIiLCJyYXUiOm51bGwsImJleSI6ZmFsc2UsImlpcCI6ZmFsc2UsIm5iZiI6MTc3MDA2MjQyNiwiaWF0IjoxNzcwMDYyNDI2LCJleHAiOjE4MDE1OTg0MjYsImp0aSI6ImEyNWVlMzU5LTdmYmMtNDU1NC05MzRmLTVhODAzOTM1ZDhhMiIsImlzcyI6IlNwYWxsYSJ9.qdOKwmrFXuG4IeeRETsrDfBkMVfkynVbe6Ok9tBUuKk&uid=a25ee359-7fbc-4554-934f-5a803935d8a2&magica=sim
 #EXTINF:-1 tvg-id="AlphaChannel.br@SD" tvg-logo="https://i.imgur.com/c1QqslA.png" group-title="General",Alpha Channel (720p)
 https://5b01a3d32b65c.streamlock.net:1936/tvalpha/tvalpha/playlist.m3u8
 #EXTINF:-1 tvg-id="AmazonSat.br@SD" tvg-logo="https://i.imgur.com/7rjCS5i.png" group-title="Undefined",Amazon Sat (1080p)
@@ -417,4 +417,5 @@ http://unitvaovivo.ufrgs.br:8080/live.ogg
 https://sistemavrt.vrtchannel.tv.br:3473/stream/play.m3u8
 #EXTINF:-1 tvg-id="VV8TV.br@SD" tvg-logo="https://i.imgur.com/TxHWAeD.png" group-title="General",VV8 TV (720p)
 https://video01.kshost.com.br/seap8272/seap8272/playlist.m3u8
+
 

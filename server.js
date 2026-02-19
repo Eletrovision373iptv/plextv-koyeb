@@ -58,6 +58,11 @@ async function atualizarLista() {
 atualizarLista();
 
 app.get('/', (req, res) => {
+    // Pega o domínio atual automaticamente (ex: plextv-koyeb.koyeb.app)
+    const host = req.get('host');
+    const protocol = req.protocol;
+    const baseUrl = `${protocol}://${host}`;
+
     let html = `
     <!DOCTYPE html>
     <html lang="pt-br">
@@ -67,7 +72,7 @@ app.get('/', (req, res) => {
         <title>Brasil TV - Eletrovision</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <style>
-            body { background: #0a0a0a; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+            body { background: #0a0a0a; color: #fff; font-family: 'Segoe UI', sans-serif; }
             .card { background: #1a1a1a; border: 1px solid #333; transition: 0.3s; height: 100%; }
             .card:hover { border-color: #009c3b; transform: scale(1.02); }
             .logo-img { height: 60px; object-fit: contain; background: #222; padding: 5px; border-radius: 5px; }
@@ -75,23 +80,22 @@ app.get('/', (req, res) => {
             .btn-copy { background: #ffdf00; color: #000; border: none; width: 100%; font-weight: bold; }
             .btn-play:hover { background: #007d2f; color: #fff; }
             .btn-copy:hover { background: #d4ba00; color: #000; }
-            hr { border-color: #333; opacity: 1; }
         </style>
     </head>
     <body class="p-3">
         <div class="container text-center">
             <h2 class="mb-1">🇧🇷 BRASIL <span style="color:#ffdf00">TV</span></h2>
-            <p class="text-muted small">Eletrovision IPTV - Painel de Controle</p>
+            <p class="text-muted small">Eletrovision IPTV - Links Encurtados</p>
             <hr>
             <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3">
                 ${canaisCache.map(ch => `
                     <div class="col">
                         <div class="card p-2 text-center">
                             <img src="${ch.logo}" class="logo-img mb-2" onerror="this.src='https://placehold.co/100x60?text=TV'">
-                            <p class="small text-truncate mb-2 fw-bold" title="${ch.nome}">${ch.nome}</p>
+                            <p class="small text-truncate mb-2 fw-bold">${ch.nome}</p>
                             <div class="mt-auto">
                                 <a href="/play/${ch.id}" target="_blank" class="btn btn-sm btn-play">ASSISTIR</a>
-                                <button onclick="copiarLink('${ch.url}')" class="btn btn-sm btn-copy text-uppercase" style="font-size: 10px;">Copiar Link</button>
+                                <button onclick="copiarLink('${baseUrl}/play/${ch.id}')" class="btn btn-sm btn-copy text-uppercase" style="font-size: 10px;">Copiar Link</button>
                             </div>
                         </div>
                     </div>
@@ -102,9 +106,9 @@ app.get('/', (req, res) => {
         <script>
             function copiarLink(url) {
                 navigator.clipboard.writeText(url).then(() => {
-                    alert('Sucesso! Link do canal copiado para a área de transferência.');
+                    alert('Link encurtado copiado!\\n' + url);
                 }).catch(err => {
-                    alert('Erro ao copiar o link.');
+                    alert('Erro ao copiar.');
                 });
             }
         </script>
@@ -116,6 +120,7 @@ app.get('/', (req, res) => {
 app.get('/play/:id', (req, res) => {
     const canal = canaisCache.find(c => c.id === req.params.id);
     if (canal && canal.url) {
+        // Redireciona para o link original do stream
         res.redirect(canal.url);
     } else {
         res.status(404).send("Canal não encontrado.");

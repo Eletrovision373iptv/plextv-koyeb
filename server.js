@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 const M3U_FILE = path.join(__dirname, 'lista_brasil.m3u');
-const M3U_URL = 'https://iptv-org.github.io/iptv/countries/br.m3u';
+const M3U_URL = 'https://eletrovision373iptv.github.io/plextv-koyeb/lista_brasil.m3u';
 
 let canaisCache = [];
 

@@ -9,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 const M3U_FILE = path.join(__dirname, 'lista_brasil.m3u');
+// Usando a sua URL do GitHub
 const M3U_URL = 'https://raw.githubusercontent.com/Eletrovision373iptv/plextv-koyeb/main/lista_brasil.m3u';
 
 let canaisCache = [];
@@ -29,8 +30,19 @@ async function atualizarLista() {
                     for (let linha of linhas) {
                         linha = linha.trim();
                         if (linha.startsWith('#EXTINF')) {
+                            // 1. Tenta pegar a LOGO
                             const logoMatch = linha.match(/tvg-logo="([^"]*)"/);
-                            const nome = linha.split(',').pop().trim();
+                            
+                            // 2. Tenta pegar o NOME (Primeiro pelo tvg-name, se não tiver, pega pela vírgula)
+                            let nome = "Canal Sem Nome";
+                            const nameMatch = linha.match(/tvg-name="([^"]*)"/);
+                            
+                            if (nameMatch && nameMatch[1]) {
+                                nome = nameMatch[1];
+                            } else {
+                                nome = linha.split(',').pop().trim();
+                            }
+
                             canalAtual = {
                                 id: `br_${novaLista.length + 1}`,
                                 nome: nome,
@@ -58,7 +70,6 @@ async function atualizarLista() {
 atualizarLista();
 
 app.get('/', (req, res) => {
-    // Pega o domínio atual automaticamente (ex: plextv-koyeb.koyeb.app)
     const host = req.get('host');
     const protocol = req.protocol;
     const baseUrl = `${protocol}://${host}`;
@@ -73,9 +84,10 @@ app.get('/', (req, res) => {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <style>
             body { background: #0a0a0a; color: #fff; font-family: 'Segoe UI', sans-serif; }
-            .card { background: #1a1a1a; border: 1px solid #333; transition: 0.3s; height: 100%; }
+            .card { background: #1a1a1a; border: 1px solid #333; transition: 0.3s; height: 100%; display: flex; flex-direction: column; }
             .card:hover { border-color: #009c3b; transform: scale(1.02); }
-            .logo-img { height: 60px; object-fit: contain; background: #222; padding: 5px; border-radius: 5px; }
+            .logo-img { height: 60px; width: 100%; object-fit: contain; background: #222; padding: 5px; border-radius: 5px; }
+            .canal-nome { color: #ffdf00; font-size: 0.85rem; min-height: 40px; display: flex; align-items: center; justify-content: center; padding: 5px; }
             .btn-play { background: #009c3b; color: #fff; border: none; width: 100%; margin-bottom: 8px; font-weight: bold; }
             .btn-copy { background: #ffdf00; color: #000; border: none; width: 100%; font-weight: bold; }
             .btn-play:hover { background: #007d2f; color: #fff; }
@@ -85,14 +97,16 @@ app.get('/', (req, res) => {
     <body class="p-3">
         <div class="container text-center">
             <h2 class="mb-1">🇧🇷 BRASIL <span style="color:#ffdf00">TV</span></h2>
-            <p class="text-muted small">Eletrovision IPTV - Links Encurtados</p>
+            <p class="text-muted small">Eletrovision IPTV - Canais Localizados</p>
             <hr>
             <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3">
                 ${canaisCache.map(ch => `
                     <div class="col">
                         <div class="card p-2 text-center">
                             <img src="${ch.logo}" class="logo-img mb-2" onerror="this.src='https://placehold.co/100x60?text=TV'">
-                            <p class="small text-truncate mb-2 fw-bold">${ch.nome}</p>
+                            <div class="canal-nome">
+                                <b>${ch.nome}</b>
+                            </div>
                             <div class="mt-auto">
                                 <a href="/play/${ch.id}" target="_blank" class="btn btn-sm btn-play">ASSISTIR</a>
                                 <button onclick="copiarLink('${baseUrl}/play/${ch.id}')" class="btn btn-sm btn-copy text-uppercase" style="font-size: 10px;">Copiar Link</button>
@@ -106,7 +120,7 @@ app.get('/', (req, res) => {
         <script>
             function copiarLink(url) {
                 navigator.clipboard.writeText(url).then(() => {
-                    alert('Link encurtado copiado!\\n' + url);
+                    alert('Link copiado!\\n' + url);
                 }).catch(err => {
                     alert('Erro ao copiar.');
                 });
@@ -120,7 +134,6 @@ app.get('/', (req, res) => {
 app.get('/play/:id', (req, res) => {
     const canal = canaisCache.find(c => c.id === req.params.id);
     if (canal && canal.url) {
-        // Redireciona para o link original do stream
         res.redirect(canal.url);
     } else {
         res.status(404).send("Canal não encontrado.");

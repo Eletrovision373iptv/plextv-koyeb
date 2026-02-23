@@ -42,7 +42,7 @@ https://hplay.tv/augetv/12396547488/10.m3u8
 https://hplay.tv/augetv/12396547488/11.m3u8
 #EXTINF:-1 tvg-id="globo.br@SD" tvg-logo="https://i.imgur.com/qxIkEbH.png" group-title="Education;Lifestyle",Globo RPC FHD
 https://hplay.tv/augetv/12396547488/052.m3u8
-#EXTINF:-1 tvg-id="globo.br@SD" tvg-logo="https://i.imgur.com/qxIkEbH.png" group-title="General",Globo Bahia HD
+#EXTINF:-1 tvg-id="globo.br@SD" tvg-logo="https://i.imgur.com/nMEdixh.png" group-title="General",Globo Bahia HD
 https://hplay.tv/augetv/12396547488/172.m3u8
 #EXTINF:-1 tvg-id="Catve2.br@SD" tvg-logo="https://i.imgur.com/qiVfsfB.png" group-title="General",Catve2 (720p)
 https://5b33b873179a2.streamlock.net:1443/catve2/catve2/playlist.m3u8
@@ -417,6 +417,7 @@ http://unitvaovivo.ufrgs.br:8080/live.ogg
 https://sistemavrt.vrtchannel.tv.br:3473/stream/play.m3u8
 #EXTINF:-1 tvg-id="VV8TV.br@SD" tvg-logo="https://i.imgur.com/TxHWAeD.png" group-title="General",VV8 TV (720p)
 https://video01.kshost.com.br/seap8272/seap8272/playlist.m3u8
+
 
 
 

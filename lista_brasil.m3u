@@ -34,16 +34,16 @@ https://hplay.tv/augetv/12396547488/231.m3u8
 https://hplay.tv/augetv/12396547488/173.m3u8
 #EXTINF:-1 tvg-id="CanalGov.br@SD" tvg-logo="https://i.imgur.com/IkZfa4j.png" group-title="Legislative",SBT SP FHD
 https://hplay.tv/augetv/12396547488/038.m3u8
-#EXTINF:-1 tvg-id="CanalLibras.br@SD" tvg-logo="https://i.imgur.com/LnWWKzP.png" group-title="General",Canal Libras (720p)
-https://canallibras-stream.ebc.com.br/mux_video_ts/index-1.m3u8
-#EXTINF:-1 tvg-id="CanalRicos.br@SD" tvg-logo="https://i.imgur.com/hs2YVJ3.png" group-title="General",Canal Ricos (480p)
-https://5d82644094cc0.streamlock.net/ricostv/ricostv/playlist.m3u8
-#EXTINF:-1 tvg-id="CanalRural.br@SD" tvg-logo="https://i.imgur.com/w9R9IIX.png" group-title="Outdoor",Canal Rural (1080p)
-https://607d2a1a47b1f.streamlock.net/crur/smil:canalrural.smil/playlist.m3u8
-#EXTINF:-1 tvg-id="CanalSaude.br@SD" tvg-logo="https://i.imgur.com/ht4tUOc.png" group-title="Education;Lifestyle",Canal Saúde (720p) [Not 24/7]
-https://arkyvbre1g.zoeweb.tv/fiocruz/fiocruz.stream/playlist.m3u8
-#EXTINF:-1 tvg-id="CanalSete.br@SD" tvg-logo="https://i.imgur.com/0cq0BPp.png" group-title="General",Canal Sete (1080p)
-http://189.51.193.70:1935/canalsete/xpl-c7/playlist.m3u8
+#EXTINF:-1 tvg-id="globo.br@SD" tvg-logo="https://i.imgur.com/qxIkEbH.png" group-title="General",Globo NSC FHD
+https://hplay.tv/augetv/12396547488/9.m3u8
+#EXTINF:-1 tvg-id="globo.br@SD" tvg-logo="https://i.imgur.com/qxIkEbH.png" group-title="General",Globo SC  HD
+https://hplay.tv/augetv/12396547488/10.m3u8
+#EXTINF:-1 tvg-id="globo.br@SD" tvg-logo="https://i.imgur.com/qxIkEbH.png" group-title="Outdoor",Globo Nordeste
+https://hplay.tv/augetv/12396547488/11.m3u8
+#EXTINF:-1 tvg-id="globo.br@SD" tvg-logo="https://i.imgur.com/qxIkEbH.png" group-title="Education;Lifestyle",Globo RPC FHD
+https://hplay.tv/augetv/12396547488/052.m3u8
+#EXTINF:-1 tvg-id="globo.br@SD" tvg-logo="https://i.imgur.com/qxIkEbH.png" group-title="General",Globo Bahia HD
+https://hplay.tv/augetv/12396547488/172.m3u8
 #EXTINF:-1 tvg-id="Catve2.br@SD" tvg-logo="https://i.imgur.com/qiVfsfB.png" group-title="General",Catve2 (720p)
 https://5b33b873179a2.streamlock.net:1443/catve2/catve2/playlist.m3u8
 #EXTINF:-1 tvg-id="CatveFM.br@SD" tvg-logo="https://i.imgur.com/w89yw36.png" group-title="General",Catve FM (720p) [Not 24/7]
@@ -417,6 +417,7 @@ http://unitvaovivo.ufrgs.br:8080/live.ogg
 https://sistemavrt.vrtchannel.tv.br:3473/stream/play.m3u8
 #EXTINF:-1 tvg-id="VV8TV.br@SD" tvg-logo="https://i.imgur.com/TxHWAeD.png" group-title="General",VV8 TV (720p)
 https://video01.kshost.com.br/seap8272/seap8272/playlist.m3u8
+
 
 
 

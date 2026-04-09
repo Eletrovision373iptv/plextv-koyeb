@@ -8,65 +8,92 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-const M3U_FILE = path.join(__dirname, 'lista_brasil.m3u');
-const M3U_URL = 'https://raw.githubusercontent.com/Eletrovision373iptv/plextv-koyeb/main/lista_brasil.m3u';
+// Configuração das Listas M3U
+const FONTES_M3U = [
+    { 
+        nome: 'Brasil', 
+        url: 'https://raw.githubusercontent.com/Eletrovision373iptv/plextv-koyeb/main/lista_brasil.m3u' 
+    },
+    { 
+        nome: 'Band', 
+        url: 'https://raw.githubusercontent.com/Eletrovision373iptv/minha-band-bat-pc/refs/heads/main/lista_completa.m3u' 
+    }
+];
+
+// Pasta temporária para salvar as listas baixadas
+const M3U_DIR = path.join(__dirname, 'listas_cache');
+if (!fs.existsSync(M3U_DIR)) fs.mkdirSync(M3U_DIR);
 
 let canaisCache = [];
 
 async function atualizarLista() {
-    return new Promise((resolve) => {
-        const file = fs.createWriteStream(M3U_FILE);
-        https.get(M3U_URL, (response) => {
-            response.pipe(file);
-            file.on('finish', () => {
-                file.close();
-                try {
-                    const data = fs.readFileSync(M3U_FILE, 'utf8');
-                    const linhas = data.split('\n');
-                    let novaLista = [];
-                    let canalAtual = null;
+    let novaListaGeral = [];
 
-                    for (let linha of linhas) {
-                        linha = linha.trim();
-                        if (linha.startsWith('#EXTINF')) {
-                            const logoMatch = linha.match(/tvg-logo="([^"]*)"/);
-                            
-                            // Tenta pegar o nome completo (tvg-name ou após a vírgula)
-                            let nome = "Canal Sem Nome";
-                            const nameMatch = linha.match(/tvg-name="([^"]*)"/);
-                            if (nameMatch && nameMatch[1]) {
-                                nome = nameMatch[1];
-                            } else {
-                                const partes = linha.split(',');
-                                if (partes.length > 1) nome = partes.pop().trim();
-                            }
+    for (const fonte of FONTES_M3U) {
+        const fileName = `${fonte.nome.toLowerCase()}.m3u`;
+        const filePath = path.join(M3U_DIR, fileName);
 
-                            canalAtual = {
-                                id: `br_${novaLista.length + 1}`,
-                                nome: nome,
-                                logo: logoMatch ? logoMatch[1] : 'https://placehold.co/100x60?text=TV',
-                                url: null
-                            };
-                        } else if (linha.startsWith('http') && canalAtual) {
-                            canalAtual.url = linha;
-                            novaLista.push(canalAtual);
-                            canalAtual = null;
-                        }
+        console.log(`📡 Baixando lista ${fonte.nome}...`);
+
+        try {
+            await new Promise((resolve, reject) => {
+                const file = fs.createWriteStream(filePath);
+                https.get(fonte.url, (response) => {
+                    if (response.statusCode !== 200) {
+                        reject(new Error(`Falha ao baixar: ${response.statusCode}`));
+                        return;
                     }
-                    canaisCache = novaLista;
-                    console.log(`✅ Lista Atualizada: ${canaisCache.length} canais.`);
-                    resolve(canaisCache.length);
-                } catch (err) {
-                    console.error("Erro ao processar lista:", err);
-                    resolve(0);
-                }
+                    response.pipe(file);
+                    file.on('finish', () => {
+                        file.close();
+                        resolve();
+                    });
+                }).on('error', reject);
             });
-        });
-    });
+
+            const data = fs.readFileSync(filePath, 'utf8');
+            const linhas = data.split('\n');
+            let canalAtual = null;
+
+            for (let linha of linhas) {
+                linha = linha.trim();
+                if (linha.startsWith('#EXTINF')) {
+                    const logoMatch = linha.match(/tvg-logo="([^"]*)"/);
+                    let nome = "Canal Sem Nome";
+                    const nameMatch = linha.match(/tvg-name="([^"]*)"/);
+                    
+                    if (nameMatch && nameMatch[1]) {
+                        nome = nameMatch[1];
+                    } else {
+                        const partes = linha.split(',');
+                        if (partes.length > 1) nome = partes.pop().trim();
+                    }
+
+                    canalAtual = {
+                        id: `ch_${novaListaGeral.length + 1}`,
+                        nome: nome,
+                        logo: logoMatch ? logoMatch[1] : 'https://placehold.co/100x60?text=TV',
+                        url: null
+                    };
+                } else if (linha.startsWith('http') && canalAtual) {
+                    canalAtual.url = linha;
+                    novaListaGeral.push(canalAtual);
+                    canalAtual = null;
+                }
+            }
+        } catch (err) {
+            console.error(`❌ Erro na fonte ${fonte.nome}:`, err.message);
+        }
+    }
+
+    canaisCache = novaListaGeral;
+    console.log(`✅ Total de canais carregados: ${canaisCache.length}`);
 }
 
+// Atualiza ao iniciar
 atualizarLista();
 
+// Rota Principal (Interface)
 app.get('/', (req, res) => {
     const host = req.get('host');
     const protocol = req.protocol;
@@ -125,27 +152,19 @@ app.get('/', (req, res) => {
         </div>
 
         <script>
-            // Função de Busca em Tempo Real
             function filterChannels() {
                 const input = document.getElementById('searchInput').value.toLowerCase();
                 const cards = document.getElementsByClassName('channel-card');
-                
                 for (let i = 0; i < cards.length; i++) {
                     const name = cards[i].getAttribute('data-name');
-                    if (name.includes(input)) {
-                        cards[i].classList.remove('hidden');
-                    } else {
-                        cards[i].classList.add('hidden');
-                    }
+                    cards[i].classList.toggle('hidden', !name.includes(input));
                 }
             }
 
             function copiarLink(url) {
                 navigator.clipboard.writeText(url).then(() => {
-                    alert('Link copiado com sucesso!\\n' + url);
-                }).catch(err => {
-                    alert('Erro ao copiar.');
-                });
+                    alert('Link copiado!\\n' + url);
+                }).catch(() => alert('Erro ao copiar.'));
             }
         </script>
     </body>
@@ -153,6 +172,7 @@ app.get('/', (req, res) => {
     res.send(html);
 });
 
+// Rota de Reprodução
 app.get('/play/:id', (req, res) => {
     const canal = canaisCache.find(c => c.id === req.params.id);
     if (canal && canal.url) {

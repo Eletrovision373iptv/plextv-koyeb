@@ -18,10 +18,7 @@ const FONTES_M3U = [
         nome: 'Band', 
         url: 'https://raw.githubusercontent.com/Eletrovision373iptv/minha-band-bat-pc/refs/heads/main/lista_completa.m3u' 
     },
-    { 
-        nome: 'pluto', 
-        url: 'https://raw.githubusercontent.com/iprtl/m3u/refs/heads/live/Pluto.m3u' 
-    },
+
 ];
 
 // Pasta temporária para salvar as listas baixadas
